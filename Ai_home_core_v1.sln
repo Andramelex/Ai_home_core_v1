@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ai_home_core_v1", "Ai_home_core_v1.csproj", "{39F3FC95-75D2-44D5-89C4-3FBCDFE656BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39F3FC95-75D2-44D5-89C4-3FBCDFE656BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F3FC95-75D2-44D5-89C4-3FBCDFE656BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F3FC95-75D2-44D5-89C4-3FBCDFE656BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F3FC95-75D2-44D5-89C4-3FBCDFE656BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB22F5B4-E479-41E8-980A-8BD4F0482571}
+	EndGlobalSection
+EndGlobal

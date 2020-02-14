@@ -1,0 +1,14 @@
+﻿<Window x:Class="Ai_home_core_v1.BaseForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ai_home_core_v1"
+        mc:Ignorable="d"
+        Title="BaseForm" Height="800" Width="800">
+    <Grid>
+        <Image x:Name="myImage" HorizontalAlignment="Right" Margin="0,10,0,64" Width="782"/>
+        <Button x:Name="Butload" Content="Button" HorizontalAlignment="Left" Margin="680,725,0,0" VerticalAlignment="Top" Width="75" Click="But_click"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="565,728,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

@@ -1,0 +1,138 @@
+﻿<Window x:Class="Ai_home_core_v1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ai_home_core_v1"
+        mc:Ignorable="d"
+        Title="Ai home.Ядро v 1.0.2" Height="416" Width="628" Closed="ClozeWindows" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="StatusOff" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="#FFF05454" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="StOn" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="#FF7FF054" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Canvas x:Name="TextIn" Margin="0,0,-6,-4">
+        <Canvas.Background>
+            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/ThinkstockPhotos-509258281.jpg" Stretch="UniformToFill"/>
+        </Canvas.Background>
+        <Label x:Name="lblPortData" HorizontalAlignment="Center" Content="..." Width="163" Canvas.Left="401" Background="{x:Null}" Height="30" Foreground="#FFEAEA58" FontSize="11" Canvas.Top="37"/>
+        <Button x:Name="btnOne" Click="btnOne_Click" Height="30" Content="Serial Port Open" Canvas.Left="310" Canvas.Top="85" Width="105"/>
+        <Button x:Name="btnZero" Click="btnZero_Click" Height="30" Content="Socet Start" Canvas.Left="313" Canvas.Top="175" Width="80"/>
+        <TextBox x:Name="TextBox" Height="125" TextWrapping="Wrap" Canvas.Left="-380" Canvas.Top="105" Width="250" >
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="20"/>
+            </TextBox.Effect>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.131" AngleY="-0.966"/>
+                    <RotateTransform Angle="0.733"/>
+                    <TranslateTransform X="5.173" Y="-2.202"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Button x:Name="ButClosePort" Content="Serial Port Close" Canvas.Left="312" Canvas.Top="131" Width="100" Height="30" Click="ButPortClose" Visibility="Hidden"/>
+        <Button x:Name="BtSendOne" Content="_1 Обрезать логи" Canvas.Left="128" Canvas.Top="282" Width="75" Click="BtSendOne_1"/>
+        <Button x:Name="BtSendTwo" Content="Post send 3" Canvas.Left="228" Canvas.Top="282" Width="75" Click="BtSendTwo_2"/>
+        <Button x:Name="BtSendSix" Content="Шлем Дабл" Canvas.Left="35" Canvas.Top="282" Width="75" Click="BtSendSix_2"/>
+        <Button x:Name="btCom0" Content="0" Canvas.Left="5" Canvas.Top="123" Width="25" Click="Button_Click"/>
+        <Button x:Name="btCom1" Content="1" Canvas.Left="5" Canvas.Top="153" Width="25" Click="Button_Click_1" RenderTransformOrigin="0.4,0.75"/>
+        <Ellipse x:Name="BrStatus_Copy" Height="12" Canvas.Left="306" Canvas.Top="11" Width="15" RenderTransformOrigin="0.333,0.417" Fill="#FF387076"/>
+        <Ellipse x:Name="BrStatus" Height="12" Canvas.Left="305" Stroke="#1EBBA4A4" Canvas.Top="10" Width="15" RenderTransformOrigin="0.333,0.417" Fill="{DynamicResource StatusOff}"/>
+        <Label x:Name="LabelData" Content="Data" Canvas.Top="6" Width="111" Foreground="#FFA4A84F" FontSize="11" Canvas.Left="-1"/>
+        <Image x:Name="imgCam" Height="150" Canvas.Left="441" Canvas.Top="225" Width="164" Source="pack://siteoforigin:,,,/Resources/home4_load.jpg" MouseLeftButtonDown="cliclMouse_open"/>
+
+        <ProgressBar x:Name="progressBar" Maximum="60" Width="180" Height="10" Canvas.Left="385" Canvas.Top="17" ValueChanged="indiprogres" IsIndeterminate="True" />
+        <TextBlock x:Name="textBlock1" Width="10" Canvas.Left="553" Canvas.Top="32" Foreground="#FF247E0A" RenderTransformOrigin="2.875,1.188" Height="11" FontSize="10" />
+        <Ellipse x:Name="BrStatus_Copy1" Height="12" Canvas.Left="334" Canvas.Top="12" Width="15" RenderTransformOrigin="0.333,0.417" Fill="#FF387076"/>
+        <Ellipse x:Name="SocetStatus" Height="12" Canvas.Left="333" Stroke="#1EBBA4A4" Canvas.Top="10" Width="15" RenderTransformOrigin="0.333,0.417" Fill="{DynamicResource StatusOff}"/>
+        <Label Content="Cam 1" Canvas.Left="485" Canvas.Top="219" FontSize="18" Cursor="Help" FontFamily="Segoe UI Black" BorderBrush="Black">
+            <Label.Background>
+                <SolidColorBrush Color="#FF96C6D1" Opacity="0.42"/>
+            </Label.Background>
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA4A469" Offset="0"/>
+                    <GradientStop Color="#FF57574D" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Cam 1" Canvas.Left="485" Canvas.Top="217" FontSize="18" Cursor="Help" FontFamily="Segoe UI Black">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF85853A" Offset="0"/>
+                    <GradientStop Color="#FFEAEAA4" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <TextBox x:Name="InputText" Height="23" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="250" Width="168"/>
+        <Button x:Name="SendIn" Content="Отправить" Canvas.Left="228" Canvas.Top="250" Width="75" Click="SendIn_Click"/>
+        <Label Canvas.Left="80" Canvas.Top="219" Width="119" Foreground="#FFE4B0B0" Content="Консоль запроса"/>
+        <TextBlock x:Name="CoketShow" Canvas.Left="441" TextWrapping="Wrap" Text="Список подключенных" Canvas.Top="89" Height="63" Width="174" Background="#33030D19" Foreground="#FFF5F99C" FontStyle="Italic"/>
+        <TextBlock x:Name="CoketShow_old" Canvas.Left="650" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="155" Height="62" Width="174" Background="#4C030D19" Foreground="#4CF5F99C" FontStyle="Italic"/>
+        <Label Content="Автообновление" Canvas.Left="385" Canvas.Top="318" Height="17" Width="58" Foreground="#FFBFCF76" Background="#333BAAB0" VerticalAlignment="Top" FontSize="6"/>
+        <CheckBox Content="" Canvas.Left="405" Canvas.Top="297" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" RenderTransformOrigin="0.25,2.8"/>
+        <ProgressBar x:Name="solarProgress" Height="15" Canvas.Left="96" Canvas.Top="34" Width="65" RenderTransformOrigin="0.5,0.5" ValueChanged="SolarValureProgressBarAmp" Maximum="800">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.67"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <Label Content="0" Canvas.Left="106" Canvas.Top="61" Foreground="#FFF3F3F3" FontSize="7" Width="15"/>
+        <Label Content="800" Canvas.Left="96" Foreground="#FFF3F3F3" FontSize="7" Width="25" Height="20" Canvas.Top="-4"/>
+        <Label Content="mA" Canvas.Left="136" Canvas.Top="-4" Foreground="#FFF3F3F3" FontSize="7" Width="35" FontStyle="Italic"/>
+        <Label Content="Данные" Canvas.Left="301" Canvas.Top="39" Height="17" Width="40" Foreground="#FFBFCF76" Background="#333BAAB0" VerticalAlignment="Top" FontSize="6"/>
+        <CheckBox Content="" Canvas.Left="355" Canvas.Top="41" Checked="CheckBox_Checked1" Unchecked="CheckBox_Unchecked1" RenderTransformOrigin="0.25,2.8"/>
+        <Button x:Name="btCom1_Copy" Content="2" Canvas.Left="6" Canvas.Top="185" Width="25" Click="Button_Click_2" RenderTransformOrigin="0.4,0.75"/>
+        <Button Content="&gt;&gt;" Canvas.Left="73" Canvas.Top="30" Width="24" Height="21" RenderTransformOrigin="0.577,0.545" Click="ShowBar" Cursor="ArrowCD"/>
+        <Button Content="&lt;&lt;" Canvas.Left="35" Canvas.Top="31" Width="24" Click="ShowWGTab" Cursor="UpArrow"/>
+        <Button Content="==" Canvas.Left="35" Canvas.Top="56" Width="24" Click="ShowGraf" Cursor="UpArrow" RenderTransformOrigin="0.625,0.45"/>
+        <Label Content="V" Canvas.Left="207" Canvas.Top="-4" Foreground="#FFFBF3F3" RenderTransformOrigin="0.294,0.269" FontSize="7" Height="18" Width="15"/>
+        <TextBox x:Name="textsolarV" Height="21" Canvas.Left="211" TextWrapping="Wrap" Canvas.Top="52" Width="45" Background="{x:Null}" Foreground="#FF64E4E4" IsEnabled="False" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="textsolarA" Height="18" Canvas.Left="139" TextWrapping="Wrap" Canvas.Top="55" Width="37" Background="{x:Null}" Foreground="#FF64E4E4" IsEnabled="False" BorderBrush="{x:Null}"/>
+
+        <TextBox x:Name="watshow" Height="19" Canvas.Left="244" TextWrapping="Wrap" Canvas.Top="14" Width="47" Foreground="#FFB82626" IsEnabled="False"/>
+        <Label Content="Ваты" Canvas.Left="246" RenderTransformOrigin="-0.132,-2.423" Foreground="#FFA0BB25" Canvas.Top="-6" FontSize="10"/>
+        <Label Content="0" Canvas.Left="173" Canvas.Top="61" Foreground="#FFF3F3F3" FontSize="7" Width="19"/>
+        <Label Content="24" Canvas.Left="174" Foreground="#FFF3F3F3" FontSize="7" Width="25" Height="20" Canvas.Top="-4"/>
+        <CheckBox x:Name="Debug_chek" Content="&#xD;&#xA;" Canvas.Left="574" Canvas.Top="14" Checked="debug_click_chek" Height="19"/>
+        <ListBox x:Name="LogBox" Height="53" Canvas.Left="32" Canvas.Top="318" Width="317" Foreground="White" BorderBrush="{x:Null}" FontSize="8">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF182F4B" Offset="1"/>
+                    <GradientStop Color="#4C97BAE4"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+        <ListBox x:Name="TextBoxList" Height="138" Canvas.Left="36" Canvas.Top="85" Width="267" FontSize="10">
+            <ListBox.Effect>
+                <DropShadowEffect Opacity="0.2"/>
+            </ListBox.Effect>
+        </ListBox>
+        <ProgressBar x:Name="solarProgressVolt2" Height="14" Canvas.Left="166" Canvas.Top="34" Width="64" ValueChanged="SolarValureProgressBarVolt" Maximum="24" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.323"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <TextBox x:Name="ComTOP" Height="16" Canvas.Left="739" TextWrapping="Wrap" Text="Длина очереди: 0/0" Canvas.Top="72" Width="111" FontSize="9"/>
+        <RichTextBox x:Name="ComTOP2" Canvas.Left="310" Canvas.Top="64" Height="18" Width="126" RenderTransformOrigin="-0.449,-2.662" FontSize="10" IsEnabled="False" />
+        <Label Content="12" Canvas.Left="171" Canvas.Top="34" Foreground="#FFF3F3F3" FontSize="7" Width="19" RenderTransformOrigin="0.421,-1.053"/>
+        <Separator Height="86" Canvas.Left="190" Margin="0" Canvas.Top="-2" Width="17"/>
+    </Canvas>
+
+</Window>
